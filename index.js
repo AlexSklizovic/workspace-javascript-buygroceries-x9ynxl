@@ -29,3 +29,17 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Save the list to database
+$("#save").click(function(){
+
+  $("li").each(function(){
+    let value = $(this).text()
+    console.log(value);
+
+    firebase
+    .firestore()
+    .collection("mylist")
+    .add({
+      item: value// do something with this
+    });
+  });
+});
