@@ -31,7 +31,8 @@ function addElement() {
         $(this).parent().addClass("cool");
 
         // bind click with new li element 
-       
+        $(this).parent().click(changeStyle);
+
         //remove input element and replace with the value user typed
          var userinput = $(this).val();
         $(this).parent().text(userinput);
@@ -48,10 +49,19 @@ function changeStyle() {
     $(this).addClass('cool');
   }else{
     // if it is cool class , remove cool and add complete
+    if($(this).hasClass("cool")){
+      $(this).removeClass("cool");
+      $(this).addClass("complete");
+    }
     // if it is  hot class,  remove hot and add complete
+    if($(this).hasClass("hot")){
+      $(this).removeClass("hot");
+      $(this).addClass("complete");
+    }
     // else ,   add complete
-
-    $(this).addClass('complete');
+    else{
+      $(this).addClass('complete');
+    }
   }
 
 }
